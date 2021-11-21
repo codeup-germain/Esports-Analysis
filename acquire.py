@@ -544,7 +544,7 @@ def build_extracted_df(username, path = './', time = 15):
     extracted_df = extracted_df.drop_duplicates()
     
     #Now save the extracted_df as a .csv
-    extracted_df.to_csv(f'new_extracted_data_{username}.csv', index = False)
+    extracted_df.to_csv(f'new_extracted_data_{username}_time_{time}.csv', index = False)
     
     return extracted_df
 
