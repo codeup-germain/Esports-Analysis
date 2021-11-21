@@ -489,16 +489,14 @@ def get_new_patch_data(name_list, api_key):
     print('All users completed! Follow suit.')
 
 
-def build_extracted_df(username, path = './', time = 15):
+def build_prepared_df(path = './', time = 15):
     """
     This function will take in a path for the json files stored in your directory. 
     It will then read all of them into a list, convert them to lists of dicts, and feed
-    them into the extract function. The time variable is for the extract function and determines
-    at what timeframe the data will be acquired for. The username is only used for naming the
-    .csv file at the end. Please use your last name to avoid confusion.
+    them into the prepare function. The time variable is for the prepare function and determines
+    at what timeframe the data will be prepared for.
     
-    This function returns a dataframe with data extracted for the specified time. 
-    It also automatically saves this dataframe as a .csv.
+    This function returns a prepared dataframe.
     
     The path variable defaults to the current directory.
     The time variable defaults to the 15 minute mark.
@@ -507,17 +505,18 @@ def build_extracted_df(username, path = './', time = 15):
     """
     
     #Gather the names of the timeline json files and sort them
-    #This will pull all files that start with 'timeline'
+    #This will pull all files that start with timeline
     timeline_files = [ x for x in os.listdir(path) if x.startswith("timeline") ]
     timeline_files.sort()
     
     #Gather the names of the other game data json files and sort them
-    #This will pull all files that start with 'other'
+    #This will pull all files that start with other
     other_data_files = [ x for x in os.listdir(path) if x.startswith("other") ]
     other_data_files.sort()
     
+    #Create a function to loop through these files and prepare them
     #Will need an empty df to store the final df
-    extracted_df = pd.DataFrame()
+    complete_df = pd.DataFrame()
     
     #Verify that the lists are the same length
     if len(timeline_files) != len(other_data_files):
@@ -534,19 +533,19 @@ def build_extracted_df(username, path = './', time = 15):
         timeline_list = timeline_list.to_dict(orient = 'records')
         game_list = game_list.to_dict(orient = 'records')
 
-        #Now feed them into Joshua C's prepare file. Extract data for the specified timeframe
-        temp_df = extract(timeline_list, game_list, time)
+        #Now feed them into Joshua C's prepare file. Extract data at the 15 minute mark
+        temp_df = extract(timeline_list, game_list, 15)
+
+        #Now prepare the data
+        #temp_df = prepare.prepare(temp_df)
 
         #Now append the temp_df to the complete_df
-        extracted_df = extracted_df.append(temp_df, ignore_index = True)
+        complete_df = complete_df.append(temp_df, ignore_index = True)
             
     #Drop duplicates and return the prepared df
-    extracted_df = extracted_df.drop_duplicates()
+    complete_df = complete_df.drop_duplicates()
     
-    #Now save the extracted_df as a .csv
-    extracted_df.to_csv(f'new_extracted_data_{username}_time_{time}.csv', index = False)
-    
-    return extracted_df
+    return complete_df
 
 def get_players(start=0, end=2640):
     '''
