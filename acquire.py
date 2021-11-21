@@ -44,7 +44,8 @@ def extract(timeline_data, other_game_data, time):
             print(f"Finished with: {index} of {len(timeline_data)-1}")
             
         else:
-            print(f"Skipping: {index} due to <15 min or not classic")
+            print(f"Skipping: {index} due to <{time} min or not classic")
+    print("Done! now lets get some korean bbq, more chicken plz! haha....follow suit")
     return df
 
 def get_more_info(data, time):
