@@ -535,7 +535,7 @@ def build_extracted_df(username, path = './', time = 15):
         game_list = game_list.to_dict(orient = 'records')
 
         #Now feed them into Joshua C's prepare file. Extract data for the specified timeframe
-        temp_df = acquire.extract(timeline_list, game_list, time)
+        temp_df = extract(timeline_list, game_list, time)
 
         #Now append the temp_df to the complete_df
         extracted_df = extracted_df.append(temp_df, ignore_index = True)
