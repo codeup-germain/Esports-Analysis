@@ -4,6 +4,11 @@
 
 <!-- Add buttons here -->
 
+https://user-images.githubusercontent.com/85950629/142899692-a7a8c0d5-4594-428e-9f8e-d0a8de370863.mp4
+
+![A-Map-of-the-League-of-Legends-game-play-in-the-classic-mode](https://user-images.githubusercontent.com/85950629/142907747-8a78835d-1d6b-4877-8d02-eaed5ec6f25d.png)
+
+
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/badge/release-draft-yellow)
 ![GitHub last commit](https://img.shields.io/badge/last%20commit-Oct%202021-green)
 
@@ -170,6 +175,32 @@ Following best practices I documented my progress throughout the project and wil
 
 
 ### Explore
+
+- Hypothesis 1: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: Red team that loses less then 5 towers will not give the blue team victory
+    - Alternative Hypothesis: Red team that loses more then 5 towers will give the blue team the victory
+- Hypothesis 2: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: Red team xp that is > 41,000 will not lead to a blue team win 
+    - Alternative Hypothesis: Red team xp that is < 41,000 will lead to a blue team win
+- Hypothesis 3: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: Blue team total physical damage over 20k will not be significant for the outcome of the game
+    - Alternative Hypothesis: Blue team total physical damage less then or equal 20k will be significant for the outcome of the           game
+- Hypothesis 4: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: Blue team level of less then 55 will not be significant for the outcome of the game
+    - Alternative Hypothesis: Average Blue team level of 55 and over will be significant for the outcome of the game
+- Hypothesis 5: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: Blue team wards less then 88 will not make a difference in the outcome of the game 
+    - Alternative Hypothesis: Blue team wards greater then 88 will make a difference in the outcome of the game
+- Hypothesis 6: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: Blue team with assists under 22 will not have a difference in the outcome of the game
+    - Alternative Hypothesis: Blue team with assists over 22 will have a difference in the outcome of the game  
+
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
 - Goal: Visualize the data and explore possible relationships. The use of visuals and statistics tests aided in the help to answer my questions. 
