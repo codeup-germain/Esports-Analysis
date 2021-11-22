@@ -100,8 +100,11 @@ def get_player_kda(data, time):
         kills_df.victimId.value_counts().sort_index().iloc[index]
 
         # Grabbing assists and saving values to same dictionary
-    for index, player in enumerate(temp[0].value_counts().sort_index()):
-        d['assistsplayer_'+str(temp[0].value_counts().sort_index().index[index])] = temp.value_counts().sort_index().iloc[index]
+    if temp.empty:
+        print("")# Do nothing
+    else:
+        for index, player in enumerate(temp[0].value_counts().sort_index()):
+            d['assistsplayer_'+str(temp[0].value_counts().sort_index().index[index])] = temp.value_counts().sort_index().iloc[index]
 
     df = pd.DataFrame()
     for index in range(len(data['info']['frames'])):
