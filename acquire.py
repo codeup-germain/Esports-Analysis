@@ -53,6 +53,7 @@ def extract(timeline_data, other_game_data, time):
 def get_more_info(data, time):
 
     d = {}
+    d['time_cutoff'] = time
     d["gameMode"] = str(data['info']['gameMode'])
     d["gameType"] = str(data['info']['gameType'])
     d['gameVersion'] = str(data['info']['gameVersion'])
@@ -117,7 +118,7 @@ def get_player_kda(data, time):
     df.timestamp = df.timestamp / 60_000
 
     kills_df = df[(df.type == 'ELITE_MONSTER_KILL')  & (df.timestamp <= time)]
-    
+
     for index, player in enumerate(kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index()):
 
         # Grabbing dragons and saving values to same dictionary
