@@ -174,6 +174,28 @@ Following best practices I documented my progress throughout the project and wil
 
 
 ### Explore
+
+- Hypothesis 1: We fail to reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: 
+    - Alternative Hypothesis: 
+- Hypothesis 2: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: 
+    - Alternative Hypothesis: 
+- Hypothesis 3: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: 
+    - Alternative Hypothesis: 
+- Hypothesis 4: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: 
+    - Alternative Hypothesis: 
+- Hypothesis 5: We reject the null hypothesis.
+    - alpha: 0.05
+    - Null Hypothesis: 
+    - Alternative Hypothesis: 
+
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
 - Goal: Visualize the data and explore possible relationships. The use of visuals and statistics tests aided in the help to answer my questions. 
