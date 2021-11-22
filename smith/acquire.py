@@ -53,6 +53,7 @@ def extract(timeline_data, other_game_data, time):
 def get_more_info(data, time):
 
     d = {}
+    d['time_cutoff'] = time
     d["gameMode"] = str(data['info']['gameMode'])
     d["gameType"] = str(data['info']['gameType'])
     d['gameVersion'] = str(data['info']['gameVersion'])
@@ -113,13 +114,17 @@ def get_player_kda(data, time):
                 df = df.append(event, ignore_index =True)
             elif event['type']== 'GAME_END':
                 df = df.append(event, ignore_index =True)
+    
+    df.timestamp = df.timestamp / 60_000
 
-    kills_df = df[df.type == 'ELITE_MONSTER_KILL']
+    kills_df = df[(df.type == 'ELITE_MONSTER_KILL')  & (df.timestamp <= time)]
+
     for index, player in enumerate(kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index()):
 
         # Grabbing dragons and saving values to same dictionary
         d['dragon_team'+str(int(kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index().index[index]))] =\
         kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index().iloc[index]
+
     for index, player in enumerate(kills_df[kills_df.monsterSubType=='CHEMTECH_DRAGON'].killerTeamId.value_counts().sort_index()):
 
         # Grabbing dragons and saving values to same dictionary
@@ -176,8 +181,11 @@ def get_player_kda(data, time):
         for event in data['info']['frames'][index]['events']:
             if event['type'] == 'WARD_PLACED':
                 df = df.append(event, ignore_index =True)
+    
+    df.timestamp = df.timestamp / 60_000
 
-    kills_df = df[df.type == 'WARD_PLACED']
+    kills_df = df[(df.type == 'WARD_PLACED')  & (df.timestamp <= time)]
+
     for index, player in enumerate(kills_df[kills_df.type=='WARD_PLACED'].creatorId.value_counts().sort_index()):
 
         # Grabbing baron and saving values to same dictionary
@@ -190,7 +198,9 @@ def get_player_kda(data, time):
             if event['type'] == 'BUILDING_KILL':
                 df = df.append(event, ignore_index =True)
 
-    kills_df = df[df.type == 'BUILDING_KILL']
+    df.timestamp = df.timestamp / 60_000
+
+    kills_df = df[(df.type == 'BUILDING_KILL')  & (df.timestamp <= time)]
 
     for index, player in enumerate(kills_df[kills_df.buildingType =='TOWER_BUILDING'].teamId.value_counts().sort_index()):
 
