@@ -12,41 +12,39 @@ def acquire():
     df = pd.read_csv("final.csv")
     return df
 
-def extract(timeline_data, other_game_data, time):
+def extract(index, timeline_data, other_game_data, time):
     #columns = ['assistsplayer_10', 'assistsplayer_2', 'assistsplayer_3', 'assistsplayer_4', 'assistsplayer_5', 'assistsplayer_8', 'assistsplayer_9', 'assistsplayer_1' 'currentGold_1', 'currentGold_10', 'currentGold_2', 'currentGold_3', 'currentGold_4', 'currentGold_5', 'currentGold_6', 'currentGold_7', 'currentGold_8', 'currentGold_9', 'deathsplayer_1', 'deathsplayer_10', 'deathsplayer_2', 'deathsplayer_3', 'deathsplayer_4', 'deathsplayer_5', 'deathsplayer_6', 'deathsplayer_7', 'deathsplayer_8', 'deathsplayer_9', 'dragon_team100', 'dragon_team200', 'firedragon_team100', 'firedragon_team200', 'gameDuration', 'gameEndTimestamp', 'gameId', 'gameMode', 'gameName', 'gameStartTimestamp', 'gameType', 'gameVersion', 'goldPerSecond_1', 'goldPerSecond_10', 'goldPerSecond_2', 'goldPerSecond_3', 'goldPerSecond_4', 'goldPerSecond_5', 'goldPerSecond_6', 'goldPerSecond_7', 'goldPerSecond_8', 'goldPerSecond_9', 'hextechdragon_team200', 'inhibs_lost_team200', 'jungleMinionsKilled_1', 'jungleMinionsKilled_10', 'jungleMinionsKilled_2', 'jungleMinionsKilled_3', 'jungleMinionsKilled_4', 'jungleMinionsKilled_5', 'jungleMinionsKilled_6', 'jungleMinionsKilled_7', 'jungleMinionsKilled_8', 'jungleMinionsKilled_9', 'killsplayer_1', 'killsplayer_2', 'killsplayer_3', 'killsplayer_4', 'killsplayer_5', 'killsplayer_6', 'killsplayer_7', 'killsplayer_8', 'killsplayer_9', 'killsplayer_10', 'level_1', 'level_10', 'level_2', 'level_3', 'level_4', 'level_5', 'level_6', 'level_7', 'level_8', 'level_9', 'magicDamageDoneToChampions_1', 'magicDamageDoneToChampions_10', 'magicDamageDoneToChampions_2', 'magicDamageDoneToChampions_3', 'magicDamageDoneToChampions_4', 'magicDamageDoneToChampions_5', 'magicDamageDoneToChampions_6', 'magicDamageDoneToChampions_7', 'magicDamageDoneToChampions_8', 'magicDamageDoneToChampions_9', 'matchId', 'minionsKilled_1', 'minionsKilled_10', 'minionsKilled_2', 'minionsKilled_3', 'minionsKilled_4', 'minionsKilled_5', 'minionsKilled_6', 'minionsKilled_7', 'minionsKilled_8', 'minionsKilled_9', 'physicalDamageDoneToChampions_1', 'physicalDamageDoneToChampions_10', 'physicalDamageDoneToChampions_2', 'physicalDamageDoneToChampions_3', 'physicalDamageDoneToChampions_4', 'physicalDamageDoneToChampions_5', 'physicalDamageDoneToChampions_6', 'physicalDamageDoneToChampions_7', 'physicalDamageDoneToChampions_8', 'physicalDamageDoneToChampions_9', 'queueId', 'riftherald_team100', 'timeEnemySpentControlled_1', 'timeEnemySpentControlled_10', 'timeEnemySpentControlled_2', 'timeEnemySpentControlled_3', 'timeEnemySpentControlled_4', 'timeEnemySpentControlled_5', 'timeEnemySpentControlled_6', 'timeEnemySpentControlled_7', 'timeEnemySpentControlled_8', 'timeEnemySpentControlled_9', 'timestamp', 'totalDamageDoneToChampions_1', 'totalDamageDoneToChampions_10', 'totalDamageDoneToChampions_2', 'totalDamageDoneToChampions_3', 'totalDamageDoneToChampions_4', 'totalDamageDoneToChampions_5', 'totalDamageDoneToChampions_6', 'totalDamageDoneToChampions_7', 'totalDamageDoneToChampions_8', 'totalDamageDoneToChampions_9', 'totalGold_1', 'totalGold_10', 'totalGold_2', 'totalGold_3', 'totalGold_4', 'totalGold_5', 'totalGold_6', 'totalGold_7', 'totalGold_8', 'totalGold_9', 'towers_lost_team100', 'towers_lost_team200', 'trueDamageDoneToChampions_1', 'trueDamageDoneToChampions_10', 'trueDamageDoneToChampions_2', 'trueDamageDoneToChampions_3', 'trueDamageDoneToChampions_4', 'trueDamageDoneToChampions_5', 'trueDamageDoneToChampions_6', 'trueDamageDoneToChampions_7', 'trueDamageDoneToChampions_8', 'trueDamageDoneToChampions_9', 'ward_player_1', 'ward_player_10', 'ward_player_2', 'ward_player_3', 'ward_player_4', 'ward_player_5', 'ward_player_6', 'ward_player_7', 'ward_player_8', 'ward_player_9', 'waterdragon_team100', 'winningTeam', 'xp_1', 'xp_10', 'xp_2', 'xp_3', 'xp_4', 'xp_5', 'xp_6', 'xp_7', 'xp_8', 'xp_9', 'airdragon_team100', 'assistsplayer_7', 'chemtechdragon_team100', 'earthdragon_team100', 'killsplayer_10', 'killsplayer_6', 'killsplayer_8', 'riftherald_team300', 'assistsplayer_1', 'baron_team100', 'earthdragon_team200', 'ward_player_0']
     df = pd.DataFrame()
-    
-    for index, timedata in enumerate(timeline_data):
         
-        # Grabbing Game Duration and Game Mode
-        game_duration = other_game_data[index]['info']['gameDuration']
-        game_mode = str(other_game_data[index]['info']['gameMode'])
-                        
-        # Checking if game is a classic game and more than 15 min
-        if (int(game_duration) >= 1500) & (game_mode == 'CLASSIC'): 
-            
-            # Creating an empty dictionary
-            final_d = {}
-            
-            # Using timeline data to extract events, up to a specific time, and add them up to create totals
-            kda = get_player_kda(timedata, time)
-            
-            # Saving totals (kda) to final_d
-            final_d.update(kda)
-            
-            # Using timeline data to extract player stats at a specific time
-            final_d.update(get_player_stats(timedata, time))
-            
-            # Using other_game_data to grab additional overall game data
-            final_d.update(get_more_info(other_game_data[index], time))
-            
-            # Save to DataFrame
-            df = df.append(final_d, ignore_index=True)
-            
-            print(f"Finished with: {index} of {len(timeline_data)-1}")
-            
-        else:
-            print(f"Skipping: {index} due to <{time} min or not classic")
+    # Grabbing Game Duration and Game Mode
+    game_duration = other_game_data[index]['info']['gameDuration']
+    game_mode = str(other_game_data[index]['info']['gameMode'])
+                    
+    # Checking if game is a classic game and more than 15 min
+    if (int(game_duration) >= 1500) & (game_mode == 'CLASSIC'): 
+        
+        # Creating an empty dictionary
+        final_d = {}
+        
+        # Using timeline data to extract events, up to a specific time, and add them up to create totals
+        kda = get_player_kda(timeline_data[index], time)
+        
+        # Saving totals (kda) to final_d
+        final_d.update(kda)
+        
+        # Using timeline data to extract player stats at a specific time
+        final_d.update(get_player_stats(timeline_data[index], time))
+        
+        # Using other_game_data to grab additional overall game data
+        final_d.update(get_more_info(other_game_data[index], time))
+        
+        # Save to DataFrame
+        df = df.append(final_d, ignore_index=True)
+        
+        print(f"Finished with: {index} of {len(timeline_data)-1}")
+        
+    else:
+        print(f"Skipping: {191} due to <{time} min or not classic")
     print("Done! now lets get some korean bbq, more chicken plz! haha....follow suit")
     return df
 
@@ -99,9 +97,13 @@ def get_player_kda(data, time):
         d['deathsplayer_'+str(int(kills_df.victimId.value_counts().sort_index().index[index]))] =\
         kills_df.victimId.value_counts().sort_index().iloc[index]
 
+    
         # Grabbing assists and saving values to same dictionary
-    for index, player in enumerate(temp[0].value_counts().sort_index()):
-        d['assistsplayer_'+str(temp[0].value_counts().sort_index().index[index])] = temp.value_counts().sort_index().iloc[index]
+    if temp.empty:
+        print("")# Do nothing
+    else:
+        for index, player in enumerate(temp[0].value_counts().sort_index()):
+            d['assistsplayer_'+str(temp[0].value_counts().sort_index().index[index])] = temp.value_counts().sort_index().iloc[index]
 
     df = pd.DataFrame()
     for index in range(len(data['info']['frames'])):
