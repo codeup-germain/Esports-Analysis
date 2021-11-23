@@ -47,7 +47,7 @@ The data was pulled from the riot api using names that were gathered from webscr
 
 
 ### Recommendations
-- You should choose your champion and playstyle based on what side you spawn on. We found that  
+
 
 
 
@@ -253,11 +253,11 @@ Following best practices I documented my progress throughout the project and wil
 <!-- LET THEM KNOW WHO YOU ARE (linkedin links) close with a joke. -->
 
 #### Individual team members github links:
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Chris Everts: https://github.com/chriseverts
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Johnathon Smith: https://github.com/johnathon-smith
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Joshua Bryant: https://github.com/Joshua-C-Bryant
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Joshua Chaves: https://github.com/joshuamchavez2
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Jared Vahle: https://github.com/JaredVahle
+- Chris Everts: https://github.com/chriseverts
+- Johnathon Smith: https://github.com/johnathon-smith
+- Joshua Bryant: https://github.com/Joshua-C-Bryant
+- Joshua Chaves: https://github.com/joshuamchavez2
+- Jared Vahle: https://github.com/JaredVahle
 
 #### Individual team members linkedin links:
 - Chris Everts: https://www.linkedin.com/in/chris-everts
