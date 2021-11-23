@@ -550,13 +550,3 @@ def build_extracted_df(username, path = './', time = 15):
     extracted_df.to_csv(f'new_extracted_data_{username}_time_{time}.csv', index = False)
     
     return extracted_df
-
-def get_players(start=0, end=2640):
-    '''
-    start where you want to start the list from
-    end is where you want to end the list
-    default setting is all of them
-    '''
-    df = pd.read_csv("2640_players.csv")
-    list_of_players = list(df.players)
-    return list_of_players[start:end]
