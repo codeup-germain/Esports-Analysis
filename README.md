@@ -41,7 +41,7 @@ League of Legends is the largest eSport in the world that generated $1.75 billio
 - The data is only from the north American Server
 - The data contains pro players, and other top performers of the game, The lowest ranking players are in masters, which is still the top .15% of players.
 
-The data was pulled from the riot api using names that were gathered from webscraping two popular League of legends sites called **op.gg** (https://na.op.gg/ranking/ladder/) and **trackingthepros** (https://www.trackingthepros.com/players/na/) op.gg was used to grab roughly the top 3000 players in the ranked ladder, and trackingthepros was used to grab the names of the current professional league of legends players.
+The data was pulled from the riot api using names that were gathered from webscraping two popular League of legends sites called **op.gg** (https://na.op.gg/ranking/ladder/) and **trackingthepros** (https://www.trackingthepros.com/players/na/) op.gg was used to grab roughly the top 5000 players in the ranked ladder, and trackingthepros was used to grab the names of the current professional league of legends players.
 
 
 
