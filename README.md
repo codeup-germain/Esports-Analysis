@@ -15,14 +15,14 @@ https://user-images.githubusercontent.com/85950629/142899692-a7a8c0d5-4594-428e-
 <!-- Describe your project in brief -->
 Link to where we acquired the original dataset from: (https://developer.riotgames.com/)
 # Project Summary
-League of Legends is the largest eSport in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. An average professional match can last anywhere between 45-60 minutes, and we are creating a model that predicts the outcome of a match by the 20 minute mark. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
+League of Legends is the largest eSport in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. An average professional match can last anywhere between 45-60 minutes, and we are creating a model that predicts the outcome of a match by the 10 minute mark. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
 
 
 
 # Executive Summary
 <!-- Add a demo for your project -->
 ### Acquisition
-- Acquired over 20,000 High ranked League of Legends players matches through Riot's API.
+- Acquired over 10,000 High ranked League of Legends players matches through Riot's API.
 
 ### Exploration
 - We found the number of tower objectives lost by a team was a key driver to predicting the outcome of a match.
@@ -35,7 +35,7 @@ League of Legends is the largest eSport in the world that generated $1.75 billio
 
 ### Project Goals
 
-- Create a model that will predict the probability of winning for each team by the 20 minute mark of a LoL match using live data scraped off of Riot’s api.
+- Create a model that will predict the probability of winning for each team by the 10 minute mark of a LoL match using live data scraped off of Riot’s api.
 
 ### Data summary
 - The data is only from the north American Server
@@ -47,7 +47,7 @@ The data was pulled from the riot api using names that were gathered from webscr
 
 
 ### Recommendations
-- You should choose your champion and playstyle based on what side you spawn on. We found that 
+- You should choose your champion and playstyle based on what side you spawn on. We found that  
 
 
 
@@ -147,7 +147,7 @@ Following best practices I documented my progress throughout the project and wil
 
 ### Planning
 - Communicate with teammates about strengths and weaknesses to find team members that can lead specific sections in the work.
-- Clearly outline and define our goal as being a teams chance of winning at the 20 minute mark in a league of legends game.
+- Clearly outline and define our goal as being a teams chance of winning at the 10 minute mark in a league of legends game.
 - Build out a trello board that the team can reference that contains an outline of information we will use when completing the rest of the datascience pipeline.
 
 **Link to Trello board** : https://trello.com/b/lW8DJA3k/project-planning
@@ -163,7 +163,7 @@ Following best practices I documented my progress throughout the project and wil
 ### Prepare
 [(Back to top)](#table-of-contents)
 <!-- Describe your prepare process -->
-- From json files that were gathered from the Riot api, functions were created that would build a dataframe of both team, and individual stats from the 20 minute mark.
+- From json files that were gathered from the Riot api, functions were created that would build a dataframe of both team, and individual stats from the 10 minute mark.
 - Columns were renamed to change the team id's of 100 to blue and 200 to red.
 - Replaced nulls with zero.
 - Split data for exploration.
