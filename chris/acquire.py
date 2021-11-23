@@ -53,6 +53,7 @@ def extract(timeline_data, other_game_data, time):
 def get_more_info(data, time):
 
     d = {}
+    d['time_cutoff'] = time
     d["gameMode"] = str(data['info']['gameMode'])
     d["gameType"] = str(data['info']['gameType'])
     d['gameVersion'] = str(data['info']['gameVersion'])
@@ -100,8 +101,11 @@ def get_player_kda(data, time):
         kills_df.victimId.value_counts().sort_index().iloc[index]
 
         # Grabbing assists and saving values to same dictionary
-    for index, player in enumerate(temp[0].value_counts().sort_index()):
-        d['assistsplayer_'+str(temp[0].value_counts().sort_index().index[index])] = temp.value_counts().sort_index().iloc[index]
+    if temp.empty:
+        print("")# Do nothing
+    else:
+        for index, player in enumerate(temp[0].value_counts().sort_index()):
+            d['assistsplayer_'+str(temp[0].value_counts().sort_index().index[index])] = temp.value_counts().sort_index().iloc[index]
 
     df = pd.DataFrame()
     for index in range(len(data['info']['frames'])):
@@ -110,13 +114,17 @@ def get_player_kda(data, time):
                 df = df.append(event, ignore_index =True)
             elif event['type']== 'GAME_END':
                 df = df.append(event, ignore_index =True)
+    
+    df.timestamp = df.timestamp / 60_000
 
-    kills_df = df[df.type == 'ELITE_MONSTER_KILL']
+    kills_df = df[(df.type == 'ELITE_MONSTER_KILL')  & (df.timestamp <= time)]
+
     for index, player in enumerate(kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index()):
 
         # Grabbing dragons and saving values to same dictionary
         d['dragon_team'+str(int(kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index().index[index]))] =\
         kills_df[kills_df.monsterType=='DRAGON'].killerTeamId.value_counts().sort_index().iloc[index]
+
     for index, player in enumerate(kills_df[kills_df.monsterSubType=='CHEMTECH_DRAGON'].killerTeamId.value_counts().sort_index()):
 
         # Grabbing dragons and saving values to same dictionary
@@ -173,8 +181,11 @@ def get_player_kda(data, time):
         for event in data['info']['frames'][index]['events']:
             if event['type'] == 'WARD_PLACED':
                 df = df.append(event, ignore_index =True)
+    
+    df.timestamp = df.timestamp / 60_000
 
-    kills_df = df[df.type == 'WARD_PLACED']
+    kills_df = df[(df.type == 'WARD_PLACED')  & (df.timestamp <= time)]
+
     for index, player in enumerate(kills_df[kills_df.type=='WARD_PLACED'].creatorId.value_counts().sort_index()):
 
         # Grabbing baron and saving values to same dictionary
@@ -187,7 +198,9 @@ def get_player_kda(data, time):
             if event['type'] == 'BUILDING_KILL':
                 df = df.append(event, ignore_index =True)
 
-    kills_df = df[df.type == 'BUILDING_KILL']
+    df.timestamp = df.timestamp / 60_000
+
+    kills_df = df[(df.type == 'BUILDING_KILL')  & (df.timestamp <= time)]
 
     for index, player in enumerate(kills_df[kills_df.buildingType =='TOWER_BUILDING'].teamId.value_counts().sort_index()):
 
@@ -489,14 +502,16 @@ def get_new_patch_data(name_list, api_key):
     print('All users completed! Follow suit.')
 
 
-def build_prepared_df(path = './', time = 15):
+def build_extracted_df(username, path = './', time = 15):
     """
     This function will take in a path for the json files stored in your directory. 
     It will then read all of them into a list, convert them to lists of dicts, and feed
-    them into the prepare function. The time variable is for the prepare function and determines
-    at what timeframe the data will be prepared for.
+    them into the extract function. The time variable is for the extract function and determines
+    at what timeframe the data will be acquired for. The username is only used for naming the
+    .csv file at the end. Please use your last name to avoid confusion.
     
-    This function returns a prepared dataframe.
+    This function returns a dataframe with data extracted for the specified time. 
+    It also automatically saves this dataframe as a .csv.
     
     The path variable defaults to the current directory.
     The time variable defaults to the 15 minute mark.
@@ -505,18 +520,17 @@ def build_prepared_df(path = './', time = 15):
     """
     
     #Gather the names of the timeline json files and sort them
-    #This will pull all files that start with timeline
+    #This will pull all files that start with 'timeline'
     timeline_files = [ x for x in os.listdir(path) if x.startswith("timeline") ]
     timeline_files.sort()
     
     #Gather the names of the other game data json files and sort them
-    #This will pull all files that start with other
+    #This will pull all files that start with 'other'
     other_data_files = [ x for x in os.listdir(path) if x.startswith("other") ]
     other_data_files.sort()
     
-    #Create a function to loop through these files and prepare them
     #Will need an empty df to store the final df
-    complete_df = pd.DataFrame()
+    extracted_df = pd.DataFrame()
     
     #Verify that the lists are the same length
     if len(timeline_files) != len(other_data_files):
@@ -533,19 +547,19 @@ def build_prepared_df(path = './', time = 15):
         timeline_list = timeline_list.to_dict(orient = 'records')
         game_list = game_list.to_dict(orient = 'records')
 
-        #Now feed them into Joshua C's prepare file. Extract data at the 15 minute mark
-        temp_df = extract(timeline_list, game_list, 15)
-
-        #Now prepare the data
-        #temp_df = prepare.prepare(temp_df)
+        #Now feed them into Joshua C's prepare file. Extract data for the specified timeframe
+        temp_df = extract(timeline_list, game_list, time)
 
         #Now append the temp_df to the complete_df
-        complete_df = complete_df.append(temp_df, ignore_index = True)
+        extracted_df = extracted_df.append(temp_df, ignore_index = True)
             
     #Drop duplicates and return the prepared df
-    complete_df = complete_df.drop_duplicates()
+    extracted_df = extracted_df.drop_duplicates()
     
-    return complete_df
+    #Now save the extracted_df as a .csv
+    extracted_df.to_csv(f'new_extracted_data_{username}_time_{time}.csv', index = False)
+    
+    return extracted_df
 
 def get_players(start=0, end=2640):
     '''
