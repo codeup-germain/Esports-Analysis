@@ -45,7 +45,6 @@ The data was pulled from the riot api using names that were gathered from webscr
 
 
 
-
 ### Recommendations
 
 
