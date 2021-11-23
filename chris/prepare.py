@@ -92,6 +92,7 @@ def clean(df):
         total = 0
 
         for i in range(1, 6):
+            print(index+2249, i)
             value = int(df.iloc[index][f'{col}{i}'])
             if (value>total):
                 total = value
