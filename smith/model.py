@@ -24,7 +24,7 @@ def get_random_forest_models(X_train, y_train, param_dict, cv = 5):
     clf = RandomForestClassifier(random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(clf, param_dict, cv)
+    grid = GridSearchCV(clf, param_dict, cv = 5)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)
