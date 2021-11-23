@@ -109,3 +109,30 @@ def clean(df):
     #    df.at[index, 'RedTeamMVPKills'] = total
 
     return df
+
+def team_difference_stats(df):
+    df['BlueTeamLevelDifference'] = df.BlueTeamLevel - df.RedTeamLevel
+    df['BlueTeamXpDifference'] = df.BlueTeamXp - df.RedTeamXp
+    df['BlueTeamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
+    df['blueteam_win'] = df['winningTeam'] == 100
+    df['BlueTeamDeathDifference'] = (df.deathsplayer_1 +
+                                        df.deathsplayer_2 +
+                                        df.deathsplayer_3 +
+                                        df.deathsplayer_4 +
+                                        df.deathsplayer_5) - (df.deathsplayer_6 +
+                                        df.deathsplayer_7 +
+                                        df.deathsplayer_8 +
+                                        df.deathsplayer_9 +
+                                        df.deathsplayer_10)
+    df['BlueTeamminionKillDifference'] = df.BlueTeamJungleMinionsKilled - df.RedTeamJungleMinionsKilled
+    df['BlueTeamDeathsDifference'] = df.BlueTeamDeaths - df.RedTeamDeaths
+    df['BlueTeamMagicDmgDifference'] = df.BlueTeamMagicDamageDoneToChampions - df.RedTeamMagicDamageDoneToChampions
+    df['BlueTeamPhysicalDmgDifference'] = df.BlueTeamPhysicalDamageDoneToChampions - df.RedTeamPhysicalDamageDoneToChampions
+    df['BlueTeamTrueDmgDifference'] = df.BlueTeamTrueDamageDoneToChampions - df.RedTeamTrueDamageDoneToChampions
+    df['BlueTeamTotalDmgDifference'] = df.BlueTeamTotalDamageDoneToChampions - df.RedTeamTotalDamageDoneToChampions
+    df['BlueTeamTotalMinionsMonstersDifference'] = ((df.BlueTeamMinionsKilled + df.BlueTeamJungleMinionsKilled) - 
+                                    (df.RedTeamMinionsKilled + df.RedTeamJungleMinionsKilled))
+    df['BlueTeamTimeCCingDifference'] = df.BlueTeamTimeEnemySpentControlled - df.RedTeamTimeEnemySpentControlled
+    df['BlueteamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
+    df['BlueteamAssistDifference'] = df.BlueTeamAssists - df.RedTeamAssists
+    return df
