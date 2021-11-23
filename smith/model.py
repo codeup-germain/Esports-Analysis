@@ -37,7 +37,34 @@ def get_random_forest_models(X_train, y_train, param_dict, cv = 5):
     #Return the best model
     return grid.best_estimator_
 
-def get_adaBoosted_model(X_train, y_train, model_to_boost, param_dict, cv = 5):
+def get_KNN_models(X_train_scaled, y_train, param_dict, cv = 5):
+    """
+    This function takes in scaled data and builds an optimized KNN classification model. 
+    It will use the parameters specified in the param_dict to optimizie across.
+    
+    This function utilizes GridSearchCV.
+    
+    This function returns the best model and prints out its parameters and mean
+    cross-validated accuracy.
+    """
+    #Create the KNN model
+    clf = KNeighborsClassifier()
+    
+    #Create the GridSearchCV object
+    grid = GridSearchCV(clf, param_dict, cv)
+    
+    #Fit the GridSearchCV object
+    grid.fit(X_train_scaled, y_train)
+    
+    #Print the best model's score and parameters
+    print('Mean Cross-Validated Accuracy: ', round(grid.best_score_, 4))
+    print('Num Neighbors: ', grid.best_params_['n_neighbors'])
+    print('Weights: ', grid.best_params_['weights'])
+    
+    #Return the best model
+    return grid.best_estimator_
+
+def get_adaBoosted_model(X_train, y_train, model_to_boost, ada_param_dict, cv = 5):
     """
     This function creates and returns an optimized AdaBoosted random forest classification model. It also
     prints out the best model's mean cross-validated accuracy score and parameters.
@@ -53,7 +80,7 @@ def get_adaBoosted_model(X_train, y_train, model_to_boost, param_dict, cv = 5):
     adaBoost_clf = AdaBoostClassifier(model_to_boost, random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(adaBoost_clf, param_dict, cv = 5)
+    grid = GridSearchCV(adaBoost_clf, ada_param_dict, cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)

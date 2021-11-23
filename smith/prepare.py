@@ -85,27 +85,27 @@ def clean(df):
     df['RedTeamTotalGoldDifference'] =  df.RedTeamTotalGold - df.BlueTeamTotalGold
 
     # Creating BlueTeamMVPKills
-    for index, value in enumerate(df.iterrows()):
-        col='killsplayer_'
-                
-        # Blue Team MVP
-        total = 0
-
-        for i in range(1, 6):
-            value = int(df.iloc[index][f'{col}{i}'])
-            if (value>total):
-                total = value
-    
-        df.at[index, 'BlueTeamMVPKills'] = total
-        
-        # Red Team MVP
-        total = 0
-
-        for i in range(6, 11):
-            value = int(df.iloc[index][f'{col}{i}'])
-            if (value>total):
-                total = value
-            
-        df.at[index, 'RedTeamMVPKills'] = total
+    #for index, value in enumerate(df.iterrows()):
+    #    col='killsplayer_'
+    #            
+    #    # Blue Team MVP
+    #    total = 0
+#
+    #    for i in range(1, 6):
+    #        value = int(df.iloc[index][f'{col}{i}'])
+    #        if (value>total):
+    #            total = value
+    #
+    #    df.at[index, 'BlueTeamMVPKills'] = total
+    #    
+    #    # Red Team MVP
+    #    total = 0
+#
+    #    for i in range(6, 11):
+    #        value = int(df.iloc[index][f'{col}{i}'])
+    #        if (value>total):
+    #            total = value
+     #       
+    #    df.at[index, 'RedTeamMVPKills'] = total
 
     return df

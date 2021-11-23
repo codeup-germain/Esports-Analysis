@@ -85,27 +85,54 @@ def clean(df):
     df['RedTeamTotalGoldDifference'] =  df.RedTeamTotalGold - df.BlueTeamTotalGold
 
     # Creating BlueTeamMVPKills
-    for index, value in enumerate(df.iterrows()):
-        col='killsplayer_'
-                
-        # Blue Team MVP
-        total = 0
+    #for index, value in enumerate(df.iterrows()):
+    #    col='killsplayer_'
+    #            
+    #    # Blue Team MVP
+    #    total = 0
+#
+    #    for i in range(1, 6):
+    #        value = int(df.iloc[index][f'{col}{i}'])
+    #        if (value>total):
+    #            total = value
+    #
+    #    df.at[index, 'BlueTeamMVPKills'] = total
+    #    
+    #    # Red Team MVP
+    #    total = 0
+#
+    #    for i in range(6, 11):
+    #        value = int(df.iloc[index][f'{col}{i}'])
+    #        if (value>total):
+    #            total = value
+     #       
+    #    df.at[index, 'RedTeamMVPKills'] = total
 
-        for i in range(1, 6):
-            value = int(df.iloc[index][f'{col}{i}'])
-            if (value>total):
-                total = value
-    
-        df.at[index, 'BlueTeamMVPKills'] = total
-        
-        # Red Team MVP
-        total = 0
+    return df
 
-        for i in range(6, 11):
-            value = int(df.iloc[index][f'{col}{i}'])
-            if (value>total):
-                total = value
-            
-        df.at[index, 'RedTeamMVPKills'] = total
-
+def team_difference_stats(df):
+    df['BlueTeamLevelDifference'] = df.BlueTeamLevel - df.RedTeamLevel
+    df['BlueTeamXpDifference'] = df.BlueTeamXp - df.RedTeamXp
+    df['BlueTeamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
+    df['blueteam_win'] = df['winningTeam'] == 100
+    df['BlueTeamDeathDifference'] = (df.deathsplayer_1 +
+                                        df.deathsplayer_2 +
+                                        df.deathsplayer_3 +
+                                        df.deathsplayer_4 +
+                                        df.deathsplayer_5) - (df.deathsplayer_6 +
+                                        df.deathsplayer_7 +
+                                        df.deathsplayer_8 +
+                                        df.deathsplayer_9 +
+                                        df.deathsplayer_10)
+    df['BlueTeamminionKillDifference'] = df.BlueTeamJungleMinionsKilled - df.RedTeamJungleMinionsKilled
+    df['BlueTeamDeathsDifference'] = df.BlueTeamDeaths - df.RedTeamDeaths
+    df['BlueTeamMagicDmgDifference'] = df.BlueTeamMagicDamageDoneToChampions - df.RedTeamMagicDamageDoneToChampions
+    df['BlueTeamPhysicalDmgDifference'] = df.BlueTeamPhysicalDamageDoneToChampions - df.RedTeamPhysicalDamageDoneToChampions
+    df['BlueTeamTrueDmgDifference'] = df.BlueTeamTrueDamageDoneToChampions - df.RedTeamTrueDamageDoneToChampions
+    df['BlueTeamTotalDmgDifference'] = df.BlueTeamTotalDamageDoneToChampions - df.RedTeamTotalDamageDoneToChampions
+    df['BlueTeamTotalMinionsMonstersDifference'] = ((df.BlueTeamMinionsKilled + df.BlueTeamJungleMinionsKilled) - 
+                                    (df.RedTeamMinionsKilled + df.RedTeamJungleMinionsKilled))
+    df['BlueTeamTimeCCingDifference'] = df.BlueTeamTimeEnemySpentControlled - df.RedTeamTimeEnemySpentControlled
+    df['BlueteamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
+    df['BlueteamAssistDifference'] = df.BlueTeamAssists - df.RedTeamAssists
     return df

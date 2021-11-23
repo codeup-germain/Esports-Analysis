@@ -41,13 +41,12 @@ League of Legends is the largest eSport in the world that generated $1.75 billio
 - The data is only from the north American Server
 - The data contains pro players, and other top performers of the game, The lowest ranking players are in masters, which is still the top .15% of players.
 
-The data was pulled from the riot api using names that were gathered from webscraping two popular League of legends sites called **op.gg** (https://na.op.gg/ranking/ladder/) and **trackingthepros** (https://www.trackingthepros.com/players/na/) op.gg was used to grab roughly the top 3000 players in the ranked ladder, and trackingthepros was used to grab the names of the current professional league of legends players.
-
+The data was pulled from the riot api using names that were gathered from webscraping two popular League of legends sites called **op.gg** (https://na.op.gg/ranking/ladder/) and **trackingthepros** (https://www.trackingthepros.com/players/na/) op.gg was used to grab roughly the top 5000 players in the ranked ladder, and trackingthepros was used to grab the names of the current professional league of legends players.
 
 
 
 ### Recommendations
-- You should choose your champion and playstyle based on what side you spawn on. We found that  
+
 
 
 
@@ -253,11 +252,11 @@ Following best practices I documented my progress throughout the project and wil
 <!-- LET THEM KNOW WHO YOU ARE (linkedin links) close with a joke. -->
 
 #### Individual team members github links:
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Chris Everts: https://github.com/chriseverts
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Johnathon Smith: https://github.com/johnathon-smith
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Joshua Bryant: https://github.com/Joshua-C-Bryant
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Joshua Chaves: https://github.com/joshuamchavez2
-- [Github]<img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/> Jared Vahle: https://github.com/JaredVahle
+- Chris Everts: https://github.com/chriseverts
+- Johnathon Smith: https://github.com/johnathon-smith
+- Joshua Bryant: https://github.com/Joshua-C-Bryant
+- Joshua Chaves: https://github.com/joshuamchavez2
+- Jared Vahle: https://github.com/JaredVahle
 
 #### Individual team members linkedin links:
 - Chris Everts: https://www.linkedin.com/in/chris-everts
