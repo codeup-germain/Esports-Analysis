@@ -24,7 +24,7 @@ def get_random_forest_models(X_train, y_train, param_dict, cv = 5):
     clf = RandomForestClassifier(random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(clf, param_dict, cv = 5)
+    grid = GridSearchCV(clf, param_dict, cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)
@@ -33,6 +33,33 @@ def get_random_forest_models(X_train, y_train, param_dict, cv = 5):
     print('Mean Cross-Validated Accuracy: ', round(grid.best_score_, 4))
     print('Max Depth: ', grid.best_params_['max_depth'])
     print('Min Samples Per Leaf: ', grid.best_params_['min_samples_leaf'])
+    
+    #Return the best model
+    return grid.best_estimator_
+
+def get_KNN_models(X_train_scaled, y_train, param_dict, cv = 5):
+    """
+    This function takes in scaled data and builds an optimized KNN classification model. 
+    It will use the parameters specified in the param_dict to optimizie across.
+    
+    This function utilizes GridSearchCV.
+    
+    This function returns the best model and prints out its parameters and mean
+    cross-validated accuracy.
+    """
+    #Create the KNN model
+    clf = KNeighborsClassifier()
+    
+    #Create the GridSearchCV object
+    grid = GridSearchCV(clf, param_dict, cv)
+    
+    #Fit the GridSearchCV object
+    grid.fit(X_train_scaled, y_train)
+    
+    #Print the best model's score and parameters
+    print('Mean Cross-Validated Accuracy: ', round(grid.best_score_, 4))
+    print('Num Neighbors: ', grid.best_params_['n_neighbors'])
+    print('Weights: ', grid.best_params_['weights'])
     
     #Return the best model
     return grid.best_estimator_
