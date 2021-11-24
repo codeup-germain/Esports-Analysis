@@ -116,7 +116,6 @@ def team_difference_stats(df):
     df['BlueTeamLevelDifference'] = df.BlueTeamLevel - df.RedTeamLevel
     df['BlueTeamXpDifference'] = df.BlueTeamXp - df.RedTeamXp
     df['BlueTeamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
-    df['blueteam_win'] = df['winningTeam'] == 100
     df['BlueTeamminionKillDifference'] = df.BlueTeamJungleMinionsKilled - df.RedTeamJungleMinionsKilled
     df['BlueTeamDeathsDifference'] = df.BlueTeamDeaths - df.RedTeamDeaths
     df['BlueTeamMagicDmgDifference'] = df.BlueTeamMagicDamageDoneToChampions - df.RedTeamMagicDamageDoneToChampions
@@ -128,6 +127,32 @@ def team_difference_stats(df):
     df['BlueTeamTimeCCingDifference'] = df.BlueTeamTimeEnemySpentControlled - df.RedTeamTimeEnemySpentControlled
     df['BlueteamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
     df['BlueteamAssistDifference'] = df.BlueTeamAssists - df.RedTeamAssists
+    df['BlueBotLaneKillDifference'] = (df.killsplayer_4 + df.killsplayer_5) - (df.killsplayer_9 + df.killsplayer_10)
+    df['BlueJungTopkillDifference'] = (df.killsplayer_1 + df.killsplayer_2) - (df.killsplayer_6 + df.killsplayer_7)
+    df['BlueTeamWaterDragonDifference'] = df.waterdragon_team100 - df.waterdragon_team200
+    df['BlueTeamAirDragonDifference'] = df.airdragon_team100 - df.airdragon_team200
+    df['BlueTeamChemtechDragonDifference'] = df.chemtechdragon_team100 - df.waterdragon_team200
+    df['BlueTeamFireDragonDifference'] = df.firedragon_team100 - df.firedragon_team200
+    df['BlueTeamHextechDragonDifference'] = df.hextechdragon_team100 - df.hextechdragon_team200
+    df['BlueTeamEarthDragonDifference'] = df.earthdragon_team100 - df.earthdragon_team200
+    df['BlueSupportStats'] = df.assistsplayer_5 - (df.deathsplayer_5 * 2)
+    df['RedSupportStats'] = df.assistsplayer_10 - (df.deathsplayer_10 * 2)
+    df['BlueSupportDifference'] = df.BlueSupportStats - df.RedSupportStats
+    df['BlueTopKda'] = df.killsplayer_1 * 1.25 + (df.assistsplayer_1 * .75) - df.deathsplayer_1
+    df['BlueJungleKda'] = df.killsplayer_2 * 1.25 + (df.assistsplayer_2 * .75) - df.deathsplayer_2
+    df['BlueMidKda'] = df.killsplayer_3 * 1.25 + (df.assistsplayer_3 * .75) - df.deathsplayer_3
+    df['BlueBotKda'] = df.killsplayer_4 * 1.25 + (df.assistsplayer_4 * .75) - df.deathsplayer_4
+    df['BlueSupportKda'] = df.killsplayer_5 * 1.25 + (df.assistsplayer_5 * .75) - df.deathsplayer_5
+    df['RedTopKda'] = df.killsplayer_6 * 1.25 + (df.assistsplayer_6 * .75) - df.deathsplayer_6
+    df['RedJungleKda'] = df.killsplayer_7 * 1.25 + (df.assistsplayer_7 * .75) - df.deathsplayer_7
+    df['RedMidKda'] = df.killsplayer_8 * 1.25 + (df.assistsplayer_8 * .75) - df.deathsplayer_8
+    df['RedBotKda'] = df.killsplayer_9 * 1.25 + (df.assistsplayer_9 * .75) - df.deathsplayer_9
+    df['RedSupportKda'] = (df.killsplayer_10 * 1.25 + (df.assistsplayer_10 * .75)) - df.deathsplayer_10
+    df['BlueTeamKdaDifference'] = (((df.BlueTeamKills * 1.25 + (df.BlueTeamAssists * .75)) - df.BlueTeamDeaths) - 
+                                   (df.RedTeamKills * 1.25 + (df.RedTeamAssists * .75) - df.RedTeamDeaths))
+    df['BlueJungleGankHeavy'] = (df.killsplayer_2 * 1000000) - (df.jungleMinionsKilled_2)
+    df['RedJungleGankHeavy'] = (df.killsplayer_7 * 1000000) - (df.jungleMinionsKilled_7)
+    df['BlueTeamJungleDiffy'] = df.BlueJungleGankHeavy - df.RedJungleGankHeavy
     return df
 
 def main_rename(df):
