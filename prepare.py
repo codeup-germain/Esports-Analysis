@@ -113,6 +113,9 @@ def clean(df):
     return df
 
 def team_difference_stats(df):
+    '''
+    Added a bunch of new columns to try out, (alot of difference columns) KDA columns
+    '''
     df['BlueTeamLevelDifference'] = df.BlueTeamLevel - df.RedTeamLevel
     df['BlueTeamXpDifference'] = df.BlueTeamXp - df.RedTeamXp
     df['BlueTeamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
@@ -150,8 +153,8 @@ def team_difference_stats(df):
     df['RedSupportKda'] = (df.killsplayer_10 * 1.25 + (df.assistsplayer_10 * .75)) - df.deathsplayer_10
     df['BlueTeamKdaDifference'] = (((df.BlueTeamKills * 1.25 + (df.BlueTeamAssists * .75)) - df.BlueTeamDeaths) - 
                                    (df.RedTeamKills * 1.25 + (df.RedTeamAssists * .75) - df.RedTeamDeaths))
-    df['BlueJungleGankHeavy'] = (df.killsplayer_2 * 1000000) - (df.jungleMinionsKilled_2)
-    df['RedJungleGankHeavy'] = (df.killsplayer_7 * 1000000) - (df.jungleMinionsKilled_7)
+    df['BlueJungleGankHeavy'] = (df.killsplayer_2 * 100) - (df.jungleMinionsKilled_2)
+    df['RedJungleGankHeavy'] = (df.killsplayer_7 * 100) - (df.jungleMinionsKilled_7)
     df['BlueTeamJungleDiffy'] = df.BlueJungleGankHeavy - df.RedJungleGankHeavy
     return df
 
