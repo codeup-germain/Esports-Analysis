@@ -13,8 +13,29 @@ def prepare(df):
 
     train, test = split(df)
 
+    train, test = drop_unranked(train, test)
+
     return train, test
 
+def drop_unranked(train, test):
+
+    train = train[train.queueId != 850]
+
+    train = train[train.queueId != 0]
+
+    train = train[train.queueId != 430]
+
+    train = train[train.queueId != 400] 
+
+    test = test[test.queueId != 850]
+
+    test = test[test.queueId != 0]
+
+    test = test[test.queueId != 430]
+
+    test = test[test.queueId != 400]
+
+    return train, test
 
 def split(df):
     
@@ -33,14 +54,6 @@ def clean(df):
     
     # Replace all nulls with 0
     df = df.fillna(0)
-
-    df = df[df.queueId != 850]
-
-    df = df[df.queueId != 0]
-
-    df = df[df.queueId != 430]
-
-    df = df[df.queueId != 400]
 
     # Setting the features we want to add up for team totals to 'columns'
     columns=['deathsplayer_',
