@@ -34,6 +34,14 @@ def clean(df):
     # Replace all nulls with 0
     df = df.fillna(0)
 
+    df = df[df.queueId != 850]
+
+    df = df[df.queueId != 0]
+
+    df = df[df.queueId != 430]
+
+    df = df[df.queueId != 400]
+
     # Setting the features we want to add up for team totals to 'columns'
     columns=['deathsplayer_',
                 'goldPerSecond_',
