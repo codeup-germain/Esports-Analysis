@@ -94,6 +94,9 @@ def get_adaBoosted_model(X_train, y_train, model_to_boost, ada_param_dict, cv = 
     return grid.best_estimator_
 
 def baseline_acc(X,y, strategy = "most_frequent",random_state = 174):
+    '''
+    Gives a baseline accuracy from an X and y.
+    '''
     # generates a baseline model using most frequent, since there are only two outcomes we are predicting.
     model = DummyClassifier(strategy = strategy, random_state = random_state)
     model.fit(X,y)
