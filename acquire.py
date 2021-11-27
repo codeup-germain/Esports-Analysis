@@ -12,7 +12,7 @@ def acquire():
     '''
     Pulls in the final dataframe that can be used for prepare
     '''
-    df = pd.read_csv("final.csv")
+    df = pd.read_csv("./master10_csv/final_10.csv", index_col = [0])
     return df
 
 def extract(timeline_data, other_game_data, time):
