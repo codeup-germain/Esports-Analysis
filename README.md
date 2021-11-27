@@ -232,7 +232,6 @@ Following best practices I documented my progress throughout the project and wil
 <!-- LET THEM KNOW WHAT YOU WISH YOU COULD HAVE DONE-->
 - Make a live dashboard that updates every 5 minutes updating the chances of winning.
 - Pull players from all ranks and perform the same analysis.
-- Use 
 # Recreate This Project
 [(Back to top)](#table-of-contents)
 <!-- How can they do what you do?-->
@@ -245,14 +244,14 @@ Following best practices I documented my progress throughout the project and wil
 
 #### Individual team members github links:
 - **Chris Everts**: https://github.com/chriseverts
-- Johnathon Smith: https://github.com/johnathon-smith
-- Joshua Bryant: https://github.com/Joshua-C-Bryant
-- Joshua Chaves: https://github.com/joshuamchavez2
-- Jared Vahle: https://github.com/JaredVahle
+- **Johnathon Smith**: https://github.com/johnathon-smith
+- **Joshua Bryant**: https://github.com/Joshua-C-Bryant
+- **Joshua Chaves**: https://github.com/joshuamchavez2
+- **Jared Vahle**: https://github.com/JaredVahle
 
 #### Individual team members linkedin links:
-- Chris Everts: https://www.linkedin.com/in/chris-everts
-- Johnathon Smith: https://www.linkedin.com/in/smith-johnathon/
-- Joshua Bryant: https://www.linkedin.com/in/joshcbryant/
-- Joshua Chaves: https://www.linkedin.com/in/joshuamchavez2/
-- Jared Vahle: https://www.linkedin.com/in/jared-vahle-data-science/
+- **Chris Everts**: https://www.linkedin.com/in/chris-everts
+- **Johnathon Smith**: https://www.linkedin.com/in/smith-johnathon/
+- **Joshua Bryant**: https://www.linkedin.com/in/joshcbryant/
+- **Joshua Chaves**: https://www.linkedin.com/in/joshuamchavez2/
+- **Jared Vahle**: https://www.linkedin.com/in/jared-vahle-data-science/
