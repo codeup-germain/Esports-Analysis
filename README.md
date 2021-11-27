@@ -21,17 +21,6 @@ League of Legends is the largest eSport in the world that generated $1.75 billio
 
 # Executive Summary
 <!-- Add a demo for your project -->
-### Acquisition
-- Acquired over 10,000 High ranked League of Legends players matches through Riot's API.
-
-### Exploration
-- We found the number of tower objectives lost by a team was a key driver to predicting the outcome of a match.
-
-### Modeling
-- Top model: is a **Random Forrest Classifier**.
-
-### Conclusion
-- We discovered that teams that focus on the objectives of the game have a higher winrate.
 
 ### Project Goals
 
@@ -40,20 +29,21 @@ League of Legends is the largest eSport in the world that generated $1.75 billio
 ### Data summary
 - The data is only from the north American Server
 - The data contains pro players, and other top performers of the game, The lowest ranking players are in masters, which is still the top .15% of players.
+- This data comes from the latest patch of league of legends, Patch 11.23
 
 The data was pulled from the riot api using names that were gathered from webscraping two popular League of legends sites called **op.gg** (https://na.op.gg/ranking/ladder/) and **trackingthepros** (https://www.trackingthepros.com/players/na/) op.gg was used to grab roughly the top 5000 players in the ranked ladder, and trackingthepros was used to grab the names of the current professional league of legends players.
 
 
 
 ### Recommendations
+Don't give away an early lead League of Legends is a very balanced game, and can swing into either teams favor. Focus your sights on dragons early and trying to get an experience lead on your enemy, and if you get your top laner ahead get rift heralds to push for early towers.
 
 
 
-
-### Problem Statement:
+### Problem Statement
 League of Legends is growing and with that comes increasing demands from coaches, analysts, casters, and the game developers. Coaches, analysts, and casters always need good data to make key decisions and develop better strategies and deeper understandings of what is the most important factors of a game. Game developers need to keep the game fair and fun, to continue developing their playerbase to stay at the top of esports and gaming popularity.
 
-### Proposed solution:
+### Proposed solution
 Create a machine learning model that can accuratly determine the team that will win based on certian features of a game, and what features have the largest impact on a teams success.
 
 # Table of contents
