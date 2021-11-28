@@ -15,23 +15,12 @@ https://user-images.githubusercontent.com/85950629/142899692-a7a8c0d5-4594-428e-
 <!-- Describe your project in brief -->
 Link to where we acquired the original dataset from: (https://developer.riotgames.com/)
 # Project Summary
-League of Legends is the largest eSport in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. An average professional match can last anywhere between 45-60 minutes, and we are creating a model that predicts the outcome of a match by the 10 minute mark. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
+League of Legends is the largest eSport in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. An average professional match can last anywhere between 20-60 minutes, and we are creating a model that predicts the outcome of a match by the 10 minute mark. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
 
 
 
 # Executive Summary
 <!-- Add a demo for your project -->
-### Acquisition
-- Acquired over 10,000 High ranked League of Legends players matches through Riot's API.
-
-### Exploration
-- We found the number of tower objectives lost by a team was a key driver to predicting the outcome of a match.
-
-### Modeling
-- Top model: is a **Random Forrest Classifier**.
-
-### Conclusion
-- We discovered that teams that focus on the objectives of the game have a higher winrate.
 
 ### Project Goals
 
@@ -40,20 +29,21 @@ League of Legends is the largest eSport in the world that generated $1.75 billio
 ### Data summary
 - The data is only from the north American Server
 - The data contains pro players, and other top performers of the game, The lowest ranking players are in masters, which is still the top .15% of players.
+- This data comes from the latest patch of league of legends, Patch 11.23
 
 The data was pulled from the riot api using names that were gathered from webscraping two popular League of legends sites called **op.gg** (https://na.op.gg/ranking/ladder/) and **trackingthepros** (https://www.trackingthepros.com/players/na/) op.gg was used to grab roughly the top 5000 players in the ranked ladder, and trackingthepros was used to grab the names of the current professional league of legends players.
 
 
 
 ### Recommendations
+Don't give away an early lead League of Legends is a very balanced game, and can swing into either teams favor. Focus your sights on dragons early and trying to get an experience lead on your enemy, and if you get your top laner ahead get rift heralds to push for early towers.
 
 
 
-
-### Problem Statement:
+### Problem Statement
 League of Legends is growing and with that comes increasing demands from coaches, analysts, casters, and the game developers. Coaches, analysts, and casters always need good data to make key decisions and develop better strategies and deeper understandings of what is the most important factors of a game. Game developers need to keep the game fair and fun, to continue developing their playerbase to stay at the top of esports and gaming popularity.
 
-### Proposed solution:
+### Proposed solution
 Create a machine learning model that can accuratly determine the team that will win based on certian features of a game, and what features have the largest impact on a teams success.
 
 # Table of contents
@@ -241,26 +231,27 @@ Following best practices I documented my progress throughout the project and wil
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHAT YOU WISH YOU COULD HAVE DONE-->
 - Make a live dashboard that updates every 5 minutes updating the chances of winning.
+- Pull players from all ranks and perform the same analysis.
 # Recreate This Project
 [(Back to top)](#table-of-contents)
 <!-- How can they do what you do?-->
 - Make a copy of our final.csv in order to avoid acquiring through the riot api.
-- Use the **rename_cols** function in our prepare.py.
+- Use the rename_cols function in our prepare.py.
 - Continue working though the project using the functions created to help along the way.
 # Footer
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHO YOU ARE (linkedin links) close with a joke. -->
 
 #### Individual team members github links:
-- Chris Everts: https://github.com/chriseverts
-- Johnathon Smith: https://github.com/johnathon-smith
-- Joshua Bryant: https://github.com/Joshua-C-Bryant
-- Joshua Chaves: https://github.com/joshuamchavez2
-- Jared Vahle: https://github.com/JaredVahle
+- **Chris Everts**: https://github.com/chriseverts
+- **Johnathon Smith**: https://github.com/johnathon-smith
+- **Joshua Bryant**: https://github.com/Joshua-C-Bryant
+- **Joshua Chaves**: https://github.com/joshuamchavez2
+- **Jared Vahle**: https://github.com/JaredVahle
 
 #### Individual team members linkedin links:
-- Chris Everts: https://www.linkedin.com/in/chris-everts
-- Johnathon Smith: https://www.linkedin.com/in/smith-johnathon/
-- Joshua Bryant: https://www.linkedin.com/in/joshcbryant/
-- Joshua Chaves: https://www.linkedin.com/in/joshuamchavez2/
-- Jared Vahle: https://www.linkedin.com/in/jared-vahle-data-science/
+- **Chris Everts**: https://www.linkedin.com/in/chris-everts
+- **Johnathon Smith**: https://www.linkedin.com/in/smith-johnathon/
+- **Joshua Bryant**: https://www.linkedin.com/in/joshcbryant/
+- **Joshua Chaves**: https://www.linkedin.com/in/joshuamchavez2/
+- **Jared Vahle**: https://www.linkedin.com/in/jared-vahle-data-science/

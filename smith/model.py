@@ -24,7 +24,7 @@ def get_random_forest_models(X_train, y_train, param_dict, cv = 5):
     clf = RandomForestClassifier(random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(clf, param_dict, cv)
+    grid = GridSearchCV(clf, param_dict, cv = cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)
@@ -51,7 +51,7 @@ def get_KNN_models(X_train_scaled, y_train, param_dict, cv = 5):
     clf = KNeighborsClassifier()
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(clf, param_dict, cv)
+    grid = GridSearchCV(clf, param_dict, cv = cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train_scaled, y_train)
@@ -80,7 +80,7 @@ def get_adaBoosted_model(X_train, y_train, model_to_boost, ada_param_dict, cv = 
     adaBoost_clf = AdaBoostClassifier(model_to_boost, random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(adaBoost_clf, ada_param_dict, cv)
+    grid = GridSearchCV(adaBoost_clf, ada_param_dict, cv = cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)
