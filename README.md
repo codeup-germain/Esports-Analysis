@@ -167,30 +167,19 @@ Following best practices I documented my progress throughout the project and wil
 
 ### Explore
 
-- Hypothesis 1: We reject the null hypothesis.
+- Hypothesis 1: We fail to reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Red team that loses less then 5 towers will not give the blue team victory
-    - Alternative Hypothesis: Red team that loses more then 5 towers will give the blue team the victory
+    - Null Hypothesis: Blue team's gold difference over 40 and blue team's level difference over 1 is not significant
+    - Alternative Hypothesis: Blue team's gold difference over 40 and blue team's level difference over 1 is significant
 - Hypothesis 2: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Red team xp that is > 41,000 will not lead to a blue team win 
-    - Alternative Hypothesis: Red team xp that is < 41,000 will lead to a blue team win
+    - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is not significant 
+    - Alternative Hypothesis: Blue team's physical damage difference under -85 and blue team's kda difference under 0  is significant
 - Hypothesis 3: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team total physical damage over 20k will not be significant for the outcome of the game
-    - Alternative Hypothesis: Blue team total physical damage less then or equal 20k will be significant for the outcome of the           game
-- Hypothesis 4: We reject the null hypothesis.
-    - alpha: 0.05
-    - Null Hypothesis: Blue team level of less then 55 will not be significant for the outcome of the game
-    - Alternative Hypothesis: Average Blue team level of 55 and over will be significant for the outcome of the game
-- Hypothesis 5: We reject the null hypothesis.
-    - alpha: 0.05
-    - Null Hypothesis: Blue team wards less then 88 will not make a difference in the outcome of the game 
-    - Alternative Hypothesis: Blue team wards greater then 88 will make a difference in the outcome of the game
-- Hypothesis 6: We reject the null hypothesis.
-    - alpha: 0.05
-    - Null Hypothesis: Blue team with assists under 22 will not have a difference in the outcome of the game
-    - Alternative Hypothesis: Blue team with assists over 22 will have a difference in the outcome of the game  
+    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0 is not significant
+    - Alternative Hypothesis: Blue team's gold difference under 0 and blue team's minion kills difference under 0 is significant
+
 
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
@@ -199,8 +188,8 @@ Following best practices I documented my progress throughout the project and wil
 - The amount of assists affected the outcome of the game
 
 #### Statistical testing:
-- There was a low correlation of -.03 between wards and the result of the game
-- We are 95% confident that 22 or more assists had a difference in the outcome of the game with a negative p value
+- There was a low correlation of -.03 blue team total gold difference and the result of the game
+- We are 95% confident that there is evidence to suggest Blue team's physical damage difference over -85 and blue team's kda difference over 0 is significant with a p value of .01
 
 
 ### Model
