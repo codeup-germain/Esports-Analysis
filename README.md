@@ -165,25 +165,28 @@ Following best practices I documented my progress throughout the project and wil
 
 ### Explore
 
-- Hypothesis 1: We fail to reject the null hypothesis.
+- Hypothesis 1: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's gold difference over 40 and blue team's level difference over 1 is not significant
-    - Alternative Hypothesis: Blue team's gold difference over 40 and blue team's level difference over 1 is significant
+    - Null Hypothesis: Blue team's gold difference over 40 and blue team's Xp over 17k  is not significant
+    - Alternative Hypothesis: Blue team's gold difference over 40 and blue team's Xp over 17k  is  significant
 - Hypothesis 2: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is not significant 
-    - Alternative Hypothesis: Blue team's physical damage difference under -85 and blue team's kda difference under 0  is significant
-- Hypothesis 3: We reject the null hypothesis.
+    - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0 is not significant
+    - Alternative Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is significant
+- Hypothesis 3: We fail to reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0 is not significant
-    - Alternative Hypothesis: Blue team's gold difference under 0 and blue team's minion kills difference under 0 is significant
+    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is not significant
+    - Alternative Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is  significant
 
 
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
 - Goal: Visualize the data and explore possible relationships. The use of visuals and statistics tests aided in the help to answer my questions. 
 **Hypothesis**
-- The amount of assists affected the outcome of the game
+1. Will Blue team's gold difference over 40 and blue team's Xp under 17k be significant?
+2. Is there a difference in the outcome of the game if blue team’s physical damage difference and the team’s kda difference is over the mean?
+3. Does the blue team’s wards difference and the team minion kills difference factor into the outcome of the game at the 10 minute mark? 
+
 
 #### Statistical testing:
 - There was a low correlation of -.03 blue team total gold difference and the result of the game
