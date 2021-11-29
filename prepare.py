@@ -8,22 +8,36 @@ import re
 # Use prep to alter the dataframe
 
 def prepare(df):
-    '''
-    Uses the clean function on the dataframe and performs a train test split on the data,
-    for cross validation purposes.
-    '''
 
     df = clean(df)
 
     train, test = split(df)
 
+    train, test = drop_unranked(train, test)
+
     return train, test
 
+def drop_unranked(train, test):
+
+    train = train[train.queueId != 850]
+
+    train = train[train.queueId != 0]
+
+    train = train[train.queueId != 430]
+
+    train = train[train.queueId != 400] 
+
+    test = test[test.queueId != 850]
+
+    test = test[test.queueId != 0]
+
+    test = test[test.queueId != 430]
+
+    test = test[test.queueId != 400]
+
+    return train, test
 
 def split(df):
-    '''
-    Does a train test split on the data, leaving 80% of the data in train, and 20% of the data in test.
-    '''
     
     train, test = train_test_split(df, test_size = 0.2, random_state = 123)
 
@@ -123,7 +137,6 @@ def team_difference_stats(df):
     '''
     Added a bunch of new columns to try out, (alot of difference columns) KDA columns
     '''
-    # adding team difference columns
     df['BlueTeamLevelDifference'] = df.BlueTeamLevel - df.RedTeamLevel
     df['BlueTeamXpDifference'] = df.BlueTeamXp - df.RedTeamXp
     df['BlueTeamWardDifference'] = df.BlueTeamWards - df.RedTeamWards
@@ -146,7 +159,6 @@ def team_difference_stats(df):
     df['BlueTeamFireDragonDifference'] = df.firedragon_team100 - df.firedragon_team200
     df['BlueTeamHextechDragonDifference'] = df.hextechdragon_team100 - df.hextechdragon_team200
     df['BlueTeamEarthDragonDifference'] = df.earthdragon_team100 - df.earthdragon_team200
-    # Created some new columns by combining different columns
     df['BlueSupportStats'] = df.assistsplayer_5 - (df.deathsplayer_5 * 2)
     df['RedSupportStats'] = df.assistsplayer_10 - (df.deathsplayer_10 * 2)
     df['BlueSupportDifference'] = df.BlueSupportStats - df.RedSupportStats
