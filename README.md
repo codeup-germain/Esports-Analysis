@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/85950629/142899692-a7a8c0d5-4594-428e-
 <!-- Describe your project in brief -->
 Link to where we acquired the original dataset from: (https://developer.riotgames.com/)
 # Project Summary
-League of Legends is the largest eSport in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. An average professional match can last anywhere between 20-60 minutes, and we are creating a model that predicts the outcome of a match by the 10 minute mark. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
+Esports is a booming global industry that will soon rival that of traditional professional sports. League of Legends is one of the largest esports in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. A professional match can last around 20 minutes, and we've created a model that predicts the winner of a match by 10 minutes. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
 
 
 
