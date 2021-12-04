@@ -24,7 +24,7 @@ def get_random_forest_models(X_train, y_train, param_dict, cv = 5):
     clf = RandomForestClassifier(random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(clf, param_dict, cv)
+    grid = GridSearchCV(clf, param_dict, cv = cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)
@@ -51,7 +51,7 @@ def get_KNN_models(X_train_scaled, y_train, param_dict, cv = 5):
     clf = KNeighborsClassifier()
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(clf, param_dict, cv)
+    grid = GridSearchCV(clf, param_dict, cv = cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train_scaled, y_train)
@@ -80,7 +80,7 @@ def get_adaBoosted_model(X_train, y_train, model_to_boost, ada_param_dict, cv = 
     adaBoost_clf = AdaBoostClassifier(model_to_boost, random_state = 123)
     
     #Create the GridSearchCV object
-    grid = GridSearchCV(adaBoost_clf, ada_param_dict, cv)
+    grid = GridSearchCV(adaBoost_clf, ada_param_dict, cv = cv)
     
     #Fit the GridSearchCV object
     grid.fit(X_train, y_train)
@@ -186,12 +186,12 @@ def model_report(y_true, y_pred):
 |      False Positive Rate: {cmatrix_dict['fpr']:>8.2%}          |
 |       True Negative Rate: {cmatrix_dict['tnr']:>8.2%}          |
 |      False Negative Rate: {cmatrix_dict['fnr']:>8.2%}          |
-|                Precision: {report_dict['1']['precision']:>8.2%}          |
-|                   Recall: {report_dict['1']['recall']:>8.2%}          |
-|                 F1-Score: {report_dict['1']['f1-score']:>8.2%}          |
+|                Precision: {report_dict['100']['precision']:>8.2%}          |
+|                   Recall: {report_dict['100']['recall']:>8.2%}          |
+|                 F1-Score: {report_dict['100']['f1-score']:>8.2%}          |
 |                                             |
-|         Positive Support: {report_dict['1']['support']:>8}          |
-|         Negative Support: {report_dict['0']['support']:>8}          |
+|         Positive Support: {report_dict['100']['support']:>8}          |
+|         Negative Support: {report_dict['200']['support']:>8}          |
 |            Total Support: {report_dict['macro avg']['support']:>8}          |
 |_____________________________________________|
 ''')
