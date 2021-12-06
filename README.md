@@ -35,7 +35,7 @@ The data was pulled from the riot api using names that were gathered from webscr
 
 
 ### Recommendations
-Don't give away an early lead League of Legends is a very balanced game, and can swing into either teams favor. Focus your sights on dragons early and trying to get an experience lead on your enemy, and if you get your top laner ahead get rift heralds to push for early towers.
+Don't give away an early lead. League of Legends is a very balanced game, and can swing into either team's favor. Focus your sights on dragons early and trying to get an experience lead on your enemy, and if you get your top laner ahead get rift heralds to push for early towers.
 
 If your team is ahead of the other team focus on playing around your top laner, and tell your botside to play safe, and if you are behind focus on getting your bot lane ahead. This gives you your best chance of winning and turning the game around.
 
@@ -45,7 +45,7 @@ If your team is ahead of the other team focus on playing around your top laner, 
 League of Legends is growing and with that comes increasing demands from coaches, analysts, casters, and the game developers. Coaches, analysts, and casters always need good data to make key decisions and develop better strategies and deeper understandings of what is the most important factors of a game. Game developers need to keep the game fair and fun, to continue developing their playerbase to stay at the top of esports and gaming popularity.
 
 ### Proposed solution
-Create a machine learning model that can accuratly determine the team that will win based on certian features of a game, and what features have the largest impact on a teams success.
+Create a machine learning model that can accuratly determine the team that will win based on certian features of a game, and what features have the largest impact on a team's success.
 
 # Table of contents
 <!-- Add a table of contents for your project -->
@@ -200,28 +200,27 @@ Following best practices I documented my progress throughout the project and wil
 [(Back to top)](#table-of-contents)
 <!-- Describe your modeling process -->
 - Split the data into X and y groups and into train and test datasets.
-- Utilized cross validation and grid search.
+- Utilized cross-validation and grid search.
 - Created optimized random forest classifier.
 - Refit the best performing model on our entire train dataset.
 
 **Model accuracy**
 
-- ~95% mean cross validation accuracy.
-- Refit the best performing model on our entire train dataset.
+- ~64% mean cross-validated accuracy.
 
 ### Evaluate
 [(Back to top)](#table-of-contents)
 <!-- Describe your evaluation process -->
 **Test Accuracy**
-- Models accuracy on test data: ~61.15%
+- Models accuracy on test data: ~61.10%
 **Test Precision**
-- Models precision on test data: ~63%
+- Models precision on test data: ~60%
 **Test Recall**
 - Models Recall on test data: ~57%
 **F1-Score**
-- Models F1-score on test data: ~60%
+- Models F1-score on test data: ~59%
 **Support**
-- Models support for test data: 497
+- Models support for test data: 237
 # Conclusion
 [(Back to top)](#table-of-contents)
 <!-- Wrap up with conclusions and takeaways -->
@@ -234,9 +233,9 @@ League of legends is a balanced game, even if you fall behind early, a comeback 
 # Recreate This Project
 [(Back to top)](#table-of-contents)
 <!-- How can they do what you do?-->
-- Make a copy of our final.csv in order to avoid acquiring through the riot api.
-- Use the rename_cols function in our prepare.py.
-- Continue working though the project using the functions created to help along the way.
+- Make a copy of our final_10.csv in order to avoid acquiring through the riot api.
+- Download acquire.py, prepare.py, explore.py, and model.py modules to your working directory.
+- Download and run the final notebook.
 # Footer
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHO YOU ARE (linkedin links) close with a joke. -->
