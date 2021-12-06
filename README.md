@@ -176,10 +176,10 @@ Following best practices I documented my progress throughout the project and wil
     - alpha: 0.05
     - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0 is not significant
     - Alternative Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is significant
-- Hypothesis 3: We fail to reject the null hypothesis.
+- Hypothesis 3: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is not significant
-    - Alternative Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is  significant
+    - Null Hypothesis: Blue team's minion kills difference over 0  is not significant
+    - Alternative Hypothesis: Blue team's minion kills difference over 0  is  significant
 
 
 [(Back to top)](#table-of-contents)
