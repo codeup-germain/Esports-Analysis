@@ -23,8 +23,7 @@ Esports is a booming global industry that will soon rival that of traditional pr
 <!-- Add a demo for your project -->
 
 ### Project Goals
-
-- Create a model that will predict the probability of winning for each team by the 10 minute mark of a LoL match using live data scraped off of Riot’s api.
+- Create a model that will predict the probability of winning for each team by the 10 minute mark of a League of Legends match using live data obtained Riot’s api on the newest seasons patch 11.23.
 
 ### Data summary
 - The data is only from the north American Server
@@ -37,6 +36,8 @@ The data was pulled from the riot api using names that were gathered from webscr
 
 ### Recommendations
 Don't give away an early lead League of Legends is a very balanced game, and can swing into either teams favor. Focus your sights on dragons early and trying to get an experience lead on your enemy, and if you get your top laner ahead get rift heralds to push for early towers.
+
+If your team is ahead of the other team focus on playing around your top laner, and tell your botside to play safe, and if you are behind focus on getting your bot lane ahead. This gives you your best chance of winning and turning the game around.
 
 
 
@@ -110,24 +111,25 @@ Create a machine learning model that can accuratly determine the team that will 
 
 | Feature                    | Datatype                | Definition   |
 |:----------------------|:------------------------|:-------------|
-| RedTeamKills|int64|Gives a total of the red teams kills.|
-| BlueTeamKills|int64|Gives a total of the blue teams kills|
-| RedTeamTowerKills|int64|Gives a total of the number of towers taken by the red team|
-| BlueTeamTowerKills|int64|Gives a total of the number of towers taken by the blue team|
-| RedTeamTowerAssists|int64|Gives the total number of assists on the red team|
-| BlueTeamTowerAssists|int64|Gives the total number of assists on the blue team|
-| RedTeamAvgLvl|int64|Takes the mean level of all the players on the red team|
-| BlueTeamAvgLvl|int64|Takes the mean level of all the players on the blue team|
-| RedTeamGoldSpent|int64|Gives a total amount of gold spent by the red team|
-| BlueTeamGoldSpent|int64|Gives a total amount of gold spent by the blue team|
-| RedTeamDragons|int64|Gives a total number of dragons killed by the red team|
-| BlueTeamDragons|int64|Gives a total number of dragons killed by the blue team|
-| RedTeamHeralds|int64|Gives a total number of heralds killed by the red team|
-| BlueTeamHeralds|int64|Gives a total number of heralds killed by the blue team|
-| RedTeamBarons|int64|Gives a total number of barons killed by the red team|
-| BlueTeamBarons|int64|Gives a total number of barons killed by the blue team|
-| RedTeamInhibTaken|int64|Gives a total number of inhibitors taken by the red team|
-| BlueTeamInhibTaken|int64|Gives a total number of inhibitors taken by the blue team|
+| BlueTeamTotalGoldDifference|int64|Gives the difference in gold between teams|
+| BlueTeamLevelDifference|int64|Gives the difference in level between teams|
+| BlueTeamXpDifference|int64|Gives the difference in expererience between teams|
+| BlueTeamWardDifference|int64|Gives the difference in wards between teams|
+| BlueTeamMinionKillDifference|int64|Gives the difference in minions killed between teams|
+| BlueTeamDeathsDifference|int64|Gives the difference in deaths between teams|
+| BlueTeamMagicDmgDifference|int64|Gives the difference in magic damage between teams|
+| BlueTeamPhysicalDmgDifference|int64|Gives the difference in physical damage between teams|
+| BlueTeamTrueDmgDifference|int64|Gives the difference in true damage between teams|
+| BlueTeamTotalDmgDifference|int64|Gives the difference in total damage between teams|
+| BlueTeamTotalMinionsMonstersDifference|int64|Gives the difference in monsters and minion kills|
+| BlueTeamTimeCCingDifference|int64|Gives the difference in time croud controling between teams|
+| BlueTeamWaterDragonDifference|int64|Gives the difference in water dragons between teams|
+| BlueTeamAirDragonDifference|int64|Gives the difference in air dragons between teams|
+| BlueTeamChemtechDragonDifference|int64|Gives the difference in chemtech dragons between teams|
+| BlueTeamFireDragonDifference|int64|Gives the difference in fire dragons between teams|
+| BlueTeamHextechDragonDifference|int64|Gives the difference in hextech dragons between teams|
+| BlueTeamEarthDragonDifference|int64|Gives the difference in earth dragons between teams|
+| BlueTeamKdaDifference|int64|Gives the difference in KDA between teams|
 
 # Data Science Pipeline
 [(Back to top)](#table-of-contents)
@@ -159,8 +161,9 @@ Following best practices I documented my progress throughout the project and wil
 
 **Feature Engineering**
 
-- Gold difference
+- Created varies difference columns for (blue team column) - (red team column)
 - MVP stats
+- KDA (kills * 1.75) (deaths) (assists * .5)
 
 
 ### Explore
@@ -173,10 +176,10 @@ Following best practices I documented my progress throughout the project and wil
     - alpha: 0.05
     - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0 is not significant
     - Alternative Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is significant
-- Hypothesis 3: We fail to reject the null hypothesis.
+- Hypothesis 3: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is not significant
-    - Alternative Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is  significant
+    - Null Hypothesis: Blue team's minion kills difference over 0  is not significant
+    - Alternative Hypothesis: Blue team's minion kills difference over 0  is  significant
 
 
 [(Back to top)](#table-of-contents)
@@ -210,15 +213,19 @@ Following best practices I documented my progress throughout the project and wil
 [(Back to top)](#table-of-contents)
 <!-- Describe your evaluation process -->
 **Test Accuracy**
-- Waiting for final draft
+- Models accuracy on test data: ~61.15%
 **Test Precision**
-- Waiting for final draft
+- Models precision on test data: ~63%
 **Test Recall**
-- Waiting for final draft
+- Models Recall on test data: ~57%
+**F1-Score**
+- Models F1-score on test data: ~60%
+**Support**
+- Models support for test data: 497
 # Conclusion
 [(Back to top)](#table-of-contents)
 <!-- Wrap up with conclusions and takeaways -->
-
+League of legends is a balanced game, even if you fall behind early, a comeback is still well within reach.
 # Given More Time/ Next steps
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHAT YOU WISH YOU COULD HAVE DONE-->
