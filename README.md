@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/85950629/142899692-a7a8c0d5-4594-428e-
 <!-- Describe your project in brief -->
 Link to where we acquired the original dataset from: (https://developer.riotgames.com/)
 # Project Summary
-League of Legends is the largest eSport in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. An average professional match can last anywhere between 20-60 minutes, and we are creating a model that predicts the outcome of a match by the 10 minute mark. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
+Esports is a booming global industry that will soon rival that of traditional professional sports. League of Legends is one of the largest esports in the world that generated $1.75 billion dollars for Riot Games in 2020 alone. A professional match can last around 20 minutes, and we've created a model that predicts the winner of a match by 10 minutes. This can be utilized by professional analysts of the game, applied to other sports, and help game developers discover any imbalances of the game mechanics.
 
 
 
@@ -167,25 +167,28 @@ Following best practices I documented my progress throughout the project and wil
 
 ### Explore
 
-- Hypothesis 1: We fail to reject the null hypothesis.
+- Hypothesis 1: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's gold difference over 40 and blue team's level difference over 1 is not significant
-    - Alternative Hypothesis: Blue team's gold difference over 40 and blue team's level difference over 1 is significant
+    - Null Hypothesis: Blue team's gold difference over 40 and blue team's Xp over 17k  is not significant
+    - Alternative Hypothesis: Blue team's gold difference over 40 and blue team's Xp over 17k  is  significant
 - Hypothesis 2: We reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is not significant 
-    - Alternative Hypothesis: Blue team's physical damage difference under -85 and blue team's kda difference under 0  is significant
-- Hypothesis 3: We reject the null hypothesis.
+    - Null Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0 is not significant
+    - Alternative Hypothesis: Blue team's physical damage difference over -85 and blue team's kda difference over 0  is significant
+- Hypothesis 3: We fail to reject the null hypothesis.
     - alpha: 0.05
-    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0 is not significant
-    - Alternative Hypothesis: Blue team's gold difference under 0 and blue team's minion kills difference under 0 is significant
+    - Null Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is not significant
+    - Alternative Hypothesis: Blue team's ward difference over 0 and blue team's minion kills difference over 0  is  significant
 
 
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
 - Goal: Visualize the data and explore possible relationships. The use of visuals and statistics tests aided in the help to answer my questions. 
 **Hypothesis**
-- The amount of assists affected the outcome of the game
+1. Will Blue team's gold difference over 40 and blue team's Xp under 17k be significant?
+2. Is there a difference in the outcome of the game if blue team’s physical damage difference and the team’s kda difference is over the mean?
+3. Does the blue team’s wards difference and the team minion kills difference factor into the outcome of the game at the 10 minute mark? 
+
 
 #### Statistical testing:
 - There was a low correlation of -.03 blue team total gold difference and the result of the game
