@@ -161,8 +161,9 @@ Following best practices I documented my progress throughout the project and wil
 
 **Feature Engineering**
 
-- Gold difference
+- Created varies difference columns for (blue team column) - (red team column)
 - MVP stats
+- KDA (kills * 1.75) (deaths) (assists * .5)
 
 
 ### Explore
